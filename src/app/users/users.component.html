@@ -1,0 +1,30 @@
+<div>
+<label>Start Date :</label>
+<input type="date" name="startDate" [(ngModel)]="startDate"  (ngModelChange)="startDate = $event;checkDateValidation()"/>
+<label>End Date :</label>
+<input type="date" name="endDate" [(ngModel)]="endDate" (ngModelChange)="endDate = $event;checkDateValidation()"/>
+</div>
+<div>
+  {{errMessage}}
+</div>
+
+
+<div *ngIf="userlist.length>0">
+  <table id="user">
+    <tr>
+      <!-- <th>Sno</th> -->
+      <th>attendedDate</th>
+      <th>result</th>
+      <th>score</th>
+    </tr>
+    <tr *ngFor="let userObj of userlist">
+      <!-- <td>{{i+1}}</td> -->
+      <td>{{userObj.attendedDate}}</td>
+      <td>{{userObj.result}}</td>
+      <td>{{userObj.score}}</td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="userlist.length>0">
+  <div [chart]="chart41"></div>
+</div>
